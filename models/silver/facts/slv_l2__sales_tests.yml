@@ -1,0 +1,33 @@
+version: 2
+
+models:
+  - name: slv_l2_sales
+    columns:
+      - name: date
+        description: Date of sale
+        tests: 
+          - not_null
+      - name: product_name
+        description: Which product has been sold
+        tests:
+          - not_null
+          - relationships:
+              to: ref('slv_l2_product')
+              field: product_name 
+      - name: geo_id
+        description: Where has the product been sold (id)
+        tests:
+          - not_null 
+          - relationships:
+              to: ref('slv_l2_geography')
+              field: geo_id
+      - name: units
+        description: Number of units that have been sold
+        tests:
+          - not_null
+      - name: value_eur
+        description: Price of the transaction (in euros)
+        tests:
+          - not_null
+    tests:
+      - slv_l2_sales_duplicates

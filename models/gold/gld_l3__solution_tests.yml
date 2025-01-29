@@ -1,0 +1,29 @@
+version: 2
+
+models:
+  - name: gld_l3_solution
+    columns: 
+      - name: month
+        tests:
+          - not_null
+      - name: city
+        tests:
+          - not_null
+      - name: country
+        tests:
+          - not_null
+      - name: zone
+        tests:
+          - not_null
+      - name: brand_name
+        tests:
+          - not_null
+      - name: units_goal
+        tests:
+          - not_null
+      - name: units_sold
+        tests:
+          - not_null 
+      - name: value_eur
+        tests:
+        - not_null

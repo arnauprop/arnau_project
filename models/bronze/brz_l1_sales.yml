@@ -1,0 +1,15 @@
+version: 2
+## És bo fer tests de relationship??
+
+sources:
+  - name: bronze
+    database: practical-case-arnau
+    schema: bronze
+    tables:
+      - name: sales
+        columns: 
+          - name: fecha
+          - name: producto
+          - name: geo_id
+          - name: unidades
+          - name: euros

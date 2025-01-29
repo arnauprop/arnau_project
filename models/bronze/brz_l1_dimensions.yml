@@ -1,0 +1,49 @@
+version: 2
+## És millor fer tests a source, fer-los a stage o millor no fer-ne i comprovar-ho tot en BigQuery?
+## He separat les sales de la resta de taules. És correcte?
+## Cal comprovar que per cada brand_id hi ha un brand_name diferent i que és el mateix a product que a brand, oi? Es fa a l'apartat de tests?
+
+sources:
+  - name: bronze
+    database: practical-case-arnau
+    schema: bronze
+
+    tables:
+      - name: brand
+        columns:
+          - name: 'brand id'
+          - name: brand
+          - name: category
+          - name: 'business unit'
+
+      - name: geography
+        columns:
+          - name: 'geo id'
+          - name: city 
+          - name: country
+          - name: zone
+        
+      - name: product
+        columns:
+          - name: producto
+          - name: 'product id'
+          - name: brand
+          - name: 'test flag'
+          - name: 'business unit'
+                
+      - name: unit_goals
+        columns:
+          - name: 'brand id ' ## Té un espai darrer el id
+          - name: 'geography id'
+          - name: '202401'
+          - name: '202402'
+          - name: '202403'
+          - name: '202404'
+          - name: '202405'
+          - name: '202406'
+          - name: '202407'
+          - name: '202408'
+          - name: '202409'
+          - name: '202410'
+          - name: '202411'
+          - name: '202412'

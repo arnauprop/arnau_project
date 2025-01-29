@@ -1,0 +1,81 @@
+version: 2
+
+models:
+  - name: slv_l2_brand
+    columns: 
+      - name: brand_id
+        description: primary key
+        tests:
+          - unique
+          - not_null
+      - name: brand_name
+        description: Brand name
+        tests:
+          - not_null
+      - name: category
+        description: a determinar
+        tests: 
+          - not_null
+
+  - name: slv_l2_geography
+    columns:
+      - name: geo_id
+        description: primary key
+        tests:
+          - unique
+          - not_null
+      - name: city
+        tests:
+          - not_null
+      - name: country
+        tests:
+          - not_null
+      - name: zone
+        tests: 
+          - not_null
+    
+  - name: slv_l2_product
+    columns: 
+      - name: product_name
+        tests:
+          - not_null
+      - name: product_id
+        tests:
+          - not_null
+          - unique
+      - name: brand_id ##relació amb brand
+        tests:
+          - not_null
+      - name: test_flag ##  què és
+        tests: 
+          - not_null
+          - accepted_values:
+              values: ['si', 'no']
+      - name: brand_name ##relació amb brand name
+        tests:
+          - not_null
+      - name: business_unit ## ha de ser pt?
+        tests: 
+          - not_null
+  
+  - name: slv_l2_units_goal
+    columns:
+      - name: month
+        test: 
+          - not_null
+      - name: brand_id
+        tests: 
+          - not_null
+          - relationships:
+              to: ref('slv_l2_brand')
+              field: brand_id 
+      - name: geo_id
+      - name: geo_id
+        tests:
+          - not_null
+          - relationships:
+              to: ref('slv_l2_geography')
+              field: geo_id
+      - name: units_goal
+        tests:
+          - not_null
